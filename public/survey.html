@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Survey</title>
+</head>
+
+<body>
+    <h1>Survey Questions</h1>
+    <h2>About You</h2>
+    <form action="/api/friends" method="POST">
+        First name:<br>
+        <input type="text" name="firstname" required>
+        <br>
+        Last name:<br>
+        <input type="text" name="lastname" required>
+        <br><br>
+
+        Image link: <br>
+        <input type="text" name="link" required>
+        <br><br>
+
+        <% for (var i = 0; i < res.length; i++){%>
+        Question <%= i + 1%>: <br><br>
+        <h3><%= res[i].question%></h3>
+        <input list="options" name="question<%=i+1%>" placeholder="Choose an option" required>
+        <datalist id="options">
+            <option value="1(strongly disagree)"></option>
+            <option value="2"></option>
+            <option value="3"></option>
+            <option value="4"></option>
+            <option value="5(strongly agree)"></option>
+        </datalist>
+        <br><br>
+        <% } %>
+        <button type="submit">Find best match</button>
+    </form>
+</body>
+
+</html>
