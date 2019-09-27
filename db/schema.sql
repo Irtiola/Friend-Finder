@@ -1,4 +1,5 @@
 create DATABASE friends_db;
+use friends_db;
 /*table 1 with all questions*/
 create table question
 (
@@ -31,11 +32,11 @@ create table question
             q_id INT NOT NULL,
             score INT NOT NULL,
             FOREIGN KEY (f_id) REFERENCES friends(f_id),
-            FOREIGN KEY (q_id) REFERENCES questions(q_id)
+            FOREIGN KEY (q_id) REFERENCES question(q_id)
         );
 
         INSERT INTO friends
-            (friend_name, picture_link)
+            (name, picture_link)
         VALUES
             ("Miranda Hobbs", "https:
 //vignette.wikia.nocookie.net/sexandthecity/images/b/bf/Miranda2.jpg/revision/latest?cb=20151031113334"),
