@@ -16,14 +16,51 @@
         Image link: <br>
         <input type="text" name="link" required>
         <br><br>
+        <h3>Qusetion 1</h3>
+        <p>hnfdhfgdhdj</p>
+        <p> Select an option</p>
+        <select id='myOptions'>
+            <option value='select an option'></option>
+            <option value="1">1(strongly disagree)</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5(strongly agree)</option>
 
-        <h2 class="qNum">
-            <p id="question"></p>
-        </h2>
+        </select>
+
+
+
+        <br><br>
+
 
         <button type="submit">Find best match</button>
     </form>
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"
+        integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+    <script type="text/javascript">
+        $.ajax({
+            url: '/survey',
+            method: 'GET'
+        }).then(function (res) {
+            for (var i = 0; i < res.length; i++) {
+                var li = $('<li>');
+                li.text(res[i]['q']);
+                li.append(p)
+                var b = $('')
+                $('ol').append(li);
 
+
+                //         var b = $('<button>').text('delete');
+
+                //         f.append(inp, b);
+
+                //         li.append(f)
+                //         $('ul').append(li);
+                //     }
+            }
+        })
+    </script>
 </body>
 
 </html>

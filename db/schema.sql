@@ -17,7 +17,7 @@ create table question
     (
         f_id int not null
         auto_increment,
-    name VARCHAR
+    f_name VARCHAR
         (255),
     picture_link VARCHAR
         (255),

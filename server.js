@@ -38,8 +38,27 @@ app.get("/", function (req, res) {
 //survey page
 app.get("/survey", function (req, res) {
     res.sendFile(path.join(__dirname, 'public/survey.html'));
+
 })
 
+app.get("/survey", function (req, resp) {
+    connection.query("SELECT * FROM questions", function (err, response) {
+        if (error) res.send(error)
+        else res.json(resp);
+    })
+})
+app.get('/api/friends', function (req, res) {
+    connection.query('SELECT f.f_name, f.picture_link, GROUP_CONCAT(s.score) AS scores FROM scores s JOIN friends f  USING(f_id) GROUP BY f_id',
+        function (error, response) {
+            if (error) res.send(error);
+            else res.json(res)
+        })
+});
+app.post('/insert', function (req, res) {
+    connection.query("INSERT INTO friends(f_name, picture_link) VALUES (' ? ',' ? ')", [req.body.f_name, req.body.picture_link], function (err, resp) {
+
+    })
+});
 
 
 //create server

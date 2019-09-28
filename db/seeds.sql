@@ -88,6 +88,14 @@ VALUES
     (7, 9, 4),
     (7, 10, 4);
 
+SELECT f.f_name, f.picture_link, GROUP_CONCAT(s.score) AS scores
+FROM scores s JOIN friends f     USING (f_id)
+GROUP BY f_id;
+
+INSERT INTO friends
+    (name, picture_link)
+VALUES
+    ('?', '?')
 SELECT q_id, f_id, t2f_id, score_difference
 FROM
     (SELECT *, (score-t2score) AS score_difference
