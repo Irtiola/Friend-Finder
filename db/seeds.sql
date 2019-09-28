@@ -87,4 +87,14 @@ VALUES
     (7, 8, 1),
     (7, 9, 4),
     (7, 10, 4);
-    
+
+SELECT q_id, f_id, t2f_id, score_difference
+FROM
+    (SELECT *, (score-t2score) AS score_difference
+    FROM
+        (SELECT *
+        FROM scores s1
+            LEFT JOIN (SELECT q_id AS t2q_id, f_id AS t2f_id, score AS t2score
+            FROM scores s2) t2
+            ON t2q_id = s1.q_id) t3)t4;
+​
