@@ -32,19 +32,22 @@ connection.connect(function (err) {
 
 //route to homepage
 app.get("/", function (req, res) {
-    res.sendFile(path.join(__dirname, 'public/home.html'));
+    res.render('pages/home');
 })
 
 //survey page
 app.get("/survey", function (req, res) {
-    res.sendFile(path.join(__dirname, 'public/survey.html'));
+    res.render('pages/survey');
 
 })
 
-app.get("/survey", function (req, resp) {
-    connection.query("SELECT * FROM questions", function (err, response) {
-        if (error) res.send(error)
-        else res.json(resp);
+app.get("/questions", function (req, res) {
+    connection.query("SELECT * FROM question", function (err, response) {
+        console.log(response);
+
+        if (err) res.send(err)
+        else res.json(response);
+        console.log(response);
     })
 })
 app.get('/api/friends', function (req, res) {
