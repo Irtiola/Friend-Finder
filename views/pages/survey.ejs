@@ -24,16 +24,23 @@
         Image link: <br>
         <input type="text" name="picture_link" required>
         <br><br>
-        <ol>
-        </ol>
-
-        <br><br>
+        <% for (var i = 0; i < res.length; i++){%>
+        <h2>Question <%= i + 1%>:</h2>
+        <h3> <i><%= res[i].q%></i></h3>
+        <select name="question<%=i+1%>" placeholder="Choose an option" required>
+            <option value="1">1 (Strongly disagree)</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5 (Strongly agree)</option>
+        </select>
+        <%}%>
 
         <button type="submit">Find best match</button>
     </form>
     <script src="https://code.jquery.com/jquery-3.3.1.min.js"
         integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
-    <script type="text/javascript">
+    <!-- <script type="text/javascript">
 
         $.ajax({
             url: '/questions',
@@ -59,10 +66,8 @@
             }
         })
 
-
         function insertNewFriend() {
             event.preventDefault();
-
             var nFriend = $("#main input[name=f_name]").val();
             var link = $("#main input[name=picture_link]").val();
             $.ajax({
@@ -76,7 +81,7 @@
                 console.log(nFriend, link)
             });
         }
-    </script>
+    </script> -->
 </body>
 
 </html>
