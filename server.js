@@ -16,7 +16,7 @@ const mysql = require("mysql");
 var friends = [];
 
 //hiding private data 
-const connection = mysql.createConnection(keys.data);
+const connection = mysql.createConnection(process.env.JAWSDB_URL || keys.data);
 
 var bodyParser = require("body-parser");
 
@@ -82,6 +82,6 @@ app.post('/api/friends', function (req, res) {
 
 
 //create server
-app.listen(3000, function () {
+app.listen(process.env.PORT || 3000, function () {
     console.log("Server runs");
 })

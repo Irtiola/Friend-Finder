@@ -38,50 +38,7 @@
 
         <button type="submit">Find best match</button>
     </form>
-    <script src="https://code.jquery.com/jquery-3.3.1.min.js"
-        integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
-    <!-- <script type="text/javascript">
-
-        $.ajax({
-            url: '/questions',
-            method: 'GET'
-        }).then(function (res) {
-            console.log(res);
-
-            for (var i = 0; i < res.length; i++) {
-                var li = $('<li>');
-                li.text(res[i]['q']);
-                li.append('<br>');
-                var sel = $('<select>');
-                sel.attr('class', 'uScore')
-                sel.append($('<option>').attr('value', ' ').text('chose an option'));
-                sel.append($('<option>').attr('value', '1').text('1(strongly disagree'));
-                sel.append($('<option>').attr('value', '2').text('2'));
-                sel.append($('<option>').attr('value', '3').text('3'));
-                sel.append($('<option>').attr('value', '4').text('4'));
-                sel.append($('<option>').attr('value', '5').text('5(strongly agree'));
-
-                li.append(sel);
-                $('ol').append(li);
-            }
-        })
-
-        function insertNewFriend() {
-            event.preventDefault();
-            var nFriend = $("#main input[name=f_name]").val();
-            var link = $("#main input[name=picture_link]").val();
-            $.ajax({
-                url: '/insert',
-                method: 'POST',
-                data: {
-                    f_name: nFriend,
-                    picture_link: link
-                }
-            }).then(function (res) {
-                console.log(nFriend, link)
-            });
-        }
-    </script> -->
+    
 </body>
 
 </html>
